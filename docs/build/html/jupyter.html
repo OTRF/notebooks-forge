@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jupyter Notebook &mdash; Notebooks Forge 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jupyter Hunt Server" href="jupyter_hunt.html" />
+    <link rel="prev" title="Notebooks Forge" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Notebooks Forge
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notebook Environments:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-jupyter-notebooks-work">How do Jupyter Notebooks Work?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-client">Jupyter Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-kernel">Jupyter Kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-document">Jupyter Notebook&nbsp;Document</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-kernels-available">Jupyter Kernels Available</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ipython-kernel-python">IPython Kernel (Python)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyspark-kernel-python">PySpark Kernel (Python)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syplon-kernel-scala-python">Syplon Kernel (Scala/Python)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#r-kernel-r">R Kernel (R)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks-server">Jupyter Notebooks Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jupyter_hunt.html">Jupyter Hunt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jupyter_rto.html">Jupyter RTO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zeppelin.html">Zeppelin Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Notebook Deployments:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Licenses:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License V3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Notebooks Forge</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Jupyter Notebook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/jupyter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jupyter-notebook">
+<h1>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h1>
+<p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
+Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.</p>
+<p>The Jupyter Notebook project is the evolution of the IPython Notebook library which was developed primarily to enhance the default python interactive console by enabling scientific operations and advanced data analytics capabilities via sharable web documents.</p>
+<a class="reference internal image-reference" href="_images/jupyter-evolution.png"><img alt="Jupyter Evolution" src="_images/jupyter-evolution.png" style="width: 800.0px; height: 313.5px;" /></a>
+<p>Nowadays, the Jupyter Notebook project not only supports Python but also over 40 programming languages such as R, Julia, Scala and PySpark.
+In fact, its name was originally derived from three programming languages: Julia, Python and R which made it one of the first language-agnostic notebook applications, and now considered one of the most preferred environments for data scientists and engineers in the community to explore and analyze data.</p>
+<a class="reference internal image-reference" href="_images/jupyter-samples.png"><img alt="Jupyter Sample" src="_images/jupyter-samples.png" style="width: 800.0px; height: 358.0px;" /></a>
+<div class="section" id="how-do-jupyter-notebooks-work">
+<h2>How do Jupyter Notebooks Work?<a class="headerlink" href="#how-do-jupyter-notebooks-work" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter Notebooks work with what is called a two-process model based on a kernel-client infrastructure.
+This model applies a similar concept to the <a class="reference external" href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">Read-Evaluate-Print Loop (REPL)</a> programming environment that takes a single user’s inputs, evaluates them, and returns the result to the user.</p>
+<a class="reference internal image-reference" href="_images/jupyter-design.png"><img alt="Jupyter Design" src="_images/jupyter-design.png" style="width: 715.4px; height: 226.1px;" /></a>
+<p>Based on the two-process model concept, we can explain the main components of Jupyter the following way:</p>
+<div class="section" id="jupyter-client">
+<h3>Jupyter Client<a class="headerlink" href="#jupyter-client" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>It allows a user to send code to the kernel and it could be in a form of a <a class="reference external" href="https://github.com/jupyter/qtconsole">Qt Console</a> or a browser via notebook documents.</li>
+<li>From a REPL perspective, the client does the read and print operations.</li>
+<li>Notebooks are hosted by the Jupyter web server which uses Tornado to serve HTTP requests.</li>
+</ul>
+</div>
+<div class="section" id="jupyter-kernel">
+<h3>Jupyter Kernel<a class="headerlink" href="#jupyter-kernel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>It receives the code sent by the client, executes it, and returns the results back to the client for display. A kernel process can have multiple clients communicating with it which is why this model is also referred as the decoupled two-process model.</li>
+<li>From a REPL perspective, the kernel does the evaluate operation.</li>
+<li>kernel and clients communicate via an interactive computing protocol based on an asynchronous messaging library named <a class="reference external" href="http://zeromq.org/">ZeroMQ</a> (low-level transport layer) and WebSockets (TCP-based)</li>
+</ul>
+</div>
+<div class="section" id="jupyter-notebook-document">
+<h3>Jupyter Notebook&nbsp;Document<a class="headerlink" href="#jupyter-notebook-document" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Notebooks are automatically saved and stored on disk in the open source JavaScript Object Notation (JSON) format and with a&nbsp;.ipynb extension.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="jupyter-kernels-available">
+<h2>Jupyter Kernels Available<a class="headerlink" href="#jupyter-kernels-available" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ipython-kernel-python">
+<h3>IPython Kernel (Python)<a class="headerlink" href="#ipython-kernel-python" title="Permalink to this headline">¶</a></h3>
+<p>The Jupyter team maintains the <a class="reference external" href="https://github.com/ipython/ipython">IPython kernel</a> since the Jupyter notebook server depends on the IPython kernel functionality.
+Many other languages, in addition to Python, may be used in the notebook.</p>
+</div>
+<div class="section" id="pyspark-kernel-python">
+<h3>PySpark Kernel (Python)<a class="headerlink" href="#pyspark-kernel-python" title="Permalink to this headline">¶</a></h3>
+<p>A python Kernel to enable <a class="reference external" href="http://spark.apache.org/docs/latest/api/python/index.html">Apache Spark for python</a>.
+Writing PySpark Applications is really no different than writing normal Python applications or packages.
+It’s quite similar to writing command-line applications in particular.
+Spark doesn’t have a build concept, just Python scripts, so to run an application, you simply execute the script against the cluster.</p>
+</div>
+<div class="section" id="syplon-kernel-scala-python">
+<h3>Syplon Kernel (Scala/Python)<a class="headerlink" href="#syplon-kernel-scala-python" title="Permalink to this headline">¶</a></h3>
+<p>A Scala kernel for Apache Spark that uses <a class="reference external" href="https://github.com/Calysto/metakernel">metakernel</a> in combination with <a class="reference external" href="https://www.py4j.org/">py4j</a>.</p>
+</div>
+<div class="section" id="r-kernel-r">
+<h3>R Kernel (R)<a class="headerlink" href="#r-kernel-r" title="Permalink to this headline">¶</a></h3>
+<p>An R kernel for <a class="reference external" href="http://spark.apache.org/docs/latest/sparkr.html#sparkr-r-on-spark">Apache SparkR</a>.
+SparkR is an R package that provides a light-weight frontend to use Apache Spark from R.
+In Spark 2.4.1, SparkR provides a distributed data frame implementation that supports operations like selection, filtering, aggregation etc. (similar to R data frames, dplyr) but on large datasets.
+SparkR also supports distributed machine learning using MLlib.</p>
+</div>
+</div>
+<div class="section" id="jupyter-notebooks-server">
+<h2>Jupyter Notebooks Server<a class="headerlink" href="#jupyter-notebooks-server" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_hunt.html">Jupyter Hunt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_hunt.html#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_rto.html">Jupyter RTO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_rto.html#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jupyter_hunt.html" class="btn btn-neutral float-right" title="Jupyter Hunt Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Notebooks Forge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Roberto Rodriguez, Jose Luis Rodriguez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

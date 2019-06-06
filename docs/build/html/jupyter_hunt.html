@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jupyter Hunt Server &mdash; Notebooks Forge 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jupyter Red Team Operations (RTO) Server" href="jupyter_rto.html" />
+    <link rel="prev" title="Jupyter Notebook" href="jupyter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Notebooks Forge
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notebook Environments:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="jupyter.html">Jupyter Notebook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="jupyter.html#how-do-jupyter-notebooks-work">How do Jupyter Notebooks Work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter.html#jupyter-kernels-available">Jupyter Kernels Available</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="jupyter.html#jupyter-notebooks-server">Jupyter Notebooks Server</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Jupyter Hunt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="jupyter_rto.html">Jupyter RTO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zeppelin.html">Zeppelin Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Notebook Deployments:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Licenses:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License V3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Notebooks Forge</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="jupyter.html">Jupyter Notebook</a> &raquo;</li>
+        
+      <li>Jupyter Hunt Server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/jupyter_hunt.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jupyter-hunt-server">
+<h1>Jupyter Hunt Server<a class="headerlink" href="#jupyter-hunt-server" title="Permalink to this headline">¶</a></h1>
+<p>A notebook server built for defensive operators with several tools to connect to known SIEMs and be able to analyze data to find potential adversaries in the network.</p>
+<div class="section" id="jupyter-python-libraries">
+<h2>Jupyter Python Libraries<a class="headerlink" href="#jupyter-python-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pandas">
+<h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language.</p>
+</div>
+<div class="section" id="altair">
+<h3>Altair<a class="headerlink" href="#altair" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/altair-viz/altair">Altair</a> is a declarative statistical visualization library for Python.
+With Altair, you can spend more time understanding your data and its meaning.
+Altair’s API is simple, friendly and consistent and built on top of the powerful <a class="reference external" href="https://github.com/vega/vega-lite">Vega-Lite</a> JSON specification.</p>
+</div>
+<div class="section" id="s3fs">
+<h3>S3Fs<a class="headerlink" href="#s3fs" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://s3fs.readthedocs.io/en/latest/index.html">S3Fs</a> is a Pythonic file interface to S3. It builds on top of <a class="reference external" href="https://boto3.readthedocs.io/en/latest/">boto3</a>.
+The top-level class S3FileSystem holds connection information and allows typical file-system style operations like cp, mv, ls, du, glob, etc., as well as put/get of local files to/from S3.</p>
+</div>
+<div class="section" id="elasticsearch-dsl">
+<h3>Elasticsearch-DSL<a class="headerlink" href="#elasticsearch-dsl" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/elastic/elasticsearch-dsl-py">Elasticsearch DSL</a> is a high-level library whose aim is to help with writing and running queries against Elasticsearch.
+It is built on top of the official low-level client (<a class="reference external" href="https://github.com/elastic/elasticsearch-py">elasticsearch-py</a>).
+It provides a more convenient and idiomatic way to write and manipulate queries.
+It stays close to the Elasticsearch JSON DSL, mirroring its terminology and structure.
+It exposes the whole range of the DSL from Python either directly using defined classes or a queryset-like expressions.</p>
+</div>
+<div class="section" id="matplotlib">
+<h3>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/matplotlib/matplotlib">Matplotlib</a> is a Python 2D plotting library which produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms.
+Matplotlib can be used in Python scripts, the Python and IPython shell (à la MATLAB or Mathematica), web application servers, and various graphical user interface toolkits.</p>
+</div>
+<div class="section" id="scikit-learn">
+<h3>Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/scikit-learn/scikit-learn">Scikit-learn</a> is a Python module for machine learning built on top of SciPy and distributed under the 3-Clause BSD license.</p>
+</div>
+<div class="section" id="ksql-python">
+<h3>KSQL-Python<a class="headerlink" href="#ksql-python" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/bryanyang0528/ksql-python">KSQL-Python</a> is a python wrapper for the KSQL REST API. Easily interact with the KSQL REST API using this library.</p>
+</div>
+<div class="section" id="confluent-kafka-python">
+<h3>Confluent-Kafka-Python<a class="headerlink" href="#confluent-kafka-python" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/confluentinc/confluent-kafka-python">Confluent-kafka-python</a> is Confluent’s Python client for <a class="reference external" href="http://kafka.apache.org/">Apache Kafka</a> and the <a class="reference external" href="https://www.confluent.io/product/compare/">Confluent Platform</a>.</p>
+</div>
+<div class="section" id="splunk-sdk">
+<h3>Splunk-SDK<a class="headerlink" href="#splunk-sdk" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://pypi.org/project/splunk-sdk/">Splunk Software Development Kit (SDK)</a> for Python contains library code and examples designed to enable developers to build applications using Splunk.</p>
+</div>
+<div class="section" id="kqlmagic">
+<h3>Kqlmagic<a class="headerlink" href="#kqlmagic" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/Microsoft/jupyter-Kqlmagic/tree/master">Kqlmagic</a> magic extension enables notebook experience, exploring Microsoft Azure Monitor data: Azure Data Explorer (Kusto), ApplicationInsights, and LogAnalytics data, from Jupyter notebook (Python3 kernel), using kql (Kusto Query language).</p>
+</div>
+<div class="section" id="neo4j">
+<h3>Neo4j<a class="headerlink" href="#neo4j" title="Permalink to this headline">¶</a></h3>
+<p>The official <a class="reference external" href="https://github.com/neo4j/neo4j-python-driver">Neo4j driver for Python</a> supports Neo4j 3.0 and above and Python versions 2.7, 3.4, 3.5, 3.6, and 3.7.
+It connects to the database using the binary protocol. It aims to be minimal, while being idiomatic to Python.</p>
+</div>
+<div class="section" id="networkx">
+<h3>Networkx<a class="headerlink" href="#networkx" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://networkx.github.io/">NetworkX</a> is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.</p>
+</div>
+<div class="section" id="nxviz">
+<h3>Nxviz<a class="headerlink" href="#nxviz" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pypi.org/project/nxviz/">Nxviz</a> is a graph visualization package for NetworkX. With nxviz, you can create beautiful graph visualizations by a declarative API.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jupyter_rto.html" class="btn btn-neutral float-right" title="Jupyter Red Team Operations (RTO) Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jupyter.html" class="btn btn-neutral float-left" title="Jupyter Notebook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Roberto Rodriguez, Jose Luis Rodriguez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

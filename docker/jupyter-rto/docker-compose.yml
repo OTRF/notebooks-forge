@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  jupyter-rto:
+    image: cyb3rward0g/jupyter-rto:0.0.1
+    container_name: jupyter-rto
+    volumes:
+      - notebooks:/opt/helk/jupyter/notebooks
+    environment:
+      JUPYTER_TYPE: lab
+      JUPYTER_BASE_URL: /jupyter
+    ports:
+      - "8888:8888"
+    restart: always
+    networks:
+      hunting:
+
+networks:
+  hunting:
+    driver: bridge
+
+volumes:
+  notebooks:
+    driver: local

@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docker Notebook Deployments &mdash; Notebooks Forge 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Licenses" href="license.html" />
+    <link rel="prev" title="Zeppelin Notebook" href="zeppelin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Notebooks Forge
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Notebook Environments:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zeppelin.html">Zeppelin Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Notebook Deployments:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-docker-containers">What are Docker Containers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks-install">Jupyter Notebooks Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#zeppelin-notebooks-install">Zeppelin Notebooks Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Licenses:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GNU General Public License V3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Notebooks Forge</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Docker Notebook Deployments</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-notebook-deployments">
+<h1>Docker Notebook Deployments<a class="headerlink" href="#docker-notebook-deployments" title="Permalink to this headline">¶</a></h1>
+<p>Docker technology allows the project to package notebook applications with all its libraries and dependencies in “containers” and make them portable among any operating system.
+This allows security analytst to deploy the notebook servers on any system they use daily for hunting research.</p>
+<div class="section" id="what-are-docker-containers">
+<h2>What are Docker Containers?<a class="headerlink" href="#what-are-docker-containers" title="Permalink to this headline">¶</a></h2>
+<p>According to <a class="reference external" href="https://www.docker.com/resources/what-container">Docker docs</a>, a container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.</p>
+<a class="reference internal image-reference" href="_images/docker-containers.png"><img alt="Docker Containers" src="_images/docker-containers.png" style="width: 523.5px; height: 442.5px;" /></a>
+<p>There are two notebook environments being supported by the project.</p>
+</div>
+<div class="section" id="jupyter-notebooks-install">
+<h2>Jupyter Notebooks Install<a class="headerlink" href="#jupyter-notebooks-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a> : Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</li>
+<li><a class="reference external" href="https://docs.docker.com/install/">Docker CE</a> : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps.</li>
+<li><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a> : a tool for defining and running multi-container Docker applications.</li>
+</ul>
+</div>
+<div class="section" id="steps">
+<h3>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h3>
+<p>Git clone the <a class="reference external" href="https://github.com/Cyb3rWard0g/notebooks-forge">Notebooks Forge project</a> and change your current directory to the projects directory.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> git clone https://github.com/Cyb3rWard0g/notebooks-forge.git
+<span class="gp">$</span> <span class="nb">cd</span> notebooks-forge/
+</pre></div>
+</div>
+<p>Change your current directory to the specific notebook you want to work with (<code class="docutils literal notranslate"><span class="pre">jupyter-hunt</span></code> or <code class="docutils literal notranslate"><span class="pre">jupyter-rto</span></code>)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> jupyter-hunt/
+</pre></div>
+</div>
+<p>Run docker-compose pointing to the default compose file available in the folder.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker-compose -f docker-compose.yml up --buil -d
+</pre></div>
+</div>
+<p>Once your container gets downloaded/run, you can check it if is running or not with the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker ps
+</pre></div>
+</div>
+<p>Before accessing the Jupyter notebook server via your favorite web browser, you will have to get the access token the application initialized with.
+You can get it with the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker <span class="nb">exec</span> -ti jupyter-hunt jupyter notebook list <span class="p">|</span> grep <span class="s2">&quot;token&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/.*token=\([^ ]*\).*/\1/&#39;</span>
+</pre></div>
+</div>
+<p>Open your favorite browser at <code class="docutils literal notranslate"><span class="pre">http://&lt;notebook</span> <span class="pre">IP</span> <span class="pre">address&gt;:8888`</span></code>. You will then be prompted with a login box to enter the token.</p>
+<a class="reference internal image-reference" href="_images/jupyter-login.png"><img alt="Jupyter Login" src="_images/jupyter-login.png" style="width: 794.0px; height: 542.0px;" /></a>
+<p>That’s it! You are now ready to use your Jupyter Notebook server.</p>
+<a class="reference internal image-reference" href="_images/jupyter-main.png"><img alt="Jupyter Main" src="_images/jupyter-main.png" style="width: 719.6px; height: 270.8px;" /></a>
+</div>
+</div>
+<div class="section" id="zeppelin-notebooks-install">
+<h2>Zeppelin Notebooks Install<a class="headerlink" href="#zeppelin-notebooks-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Requirements<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a> : Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</li>
+<li><a class="reference external" href="https://docs.docker.com/install/">Docker CE</a> : Docker Community Edition (CE) is ideal for developers and small teams looking to get started with Docker and experimenting with container-based apps.</li>
+<li><a class="reference external" href="https://docs.docker.com/compose/">Docker Compose</a> : a tool for defining and running multi-container Docker applications.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Steps<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Coming soon..</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="zeppelin.html" class="btn btn-neutral float-left" title="Zeppelin Notebook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Roberto Rodriguez, Jose Luis Rodriguez
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

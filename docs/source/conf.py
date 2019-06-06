@@ -104,7 +104,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'HuntingGroundsdoc'
+htmlhelp_basename = 'notebooksforgedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'HuntingGrounds.tex', 'Hunting Grounds Documentation',
+    (master_doc, 'NotebooksForge.tex', 'Notebooks Forge Documentation',
      'Roberto Rodriguez, Jose Luis Rodriguez', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'huntinggrounds', 'Hunting Grounds Documentation',
+    (master_doc, 'NotebooksForge', 'Notebooks Forge Documentation',
      [author], 1)
 ]
 
@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'HuntingGrounds', 'Hunting Grounds Documentation',
-     author, 'HuntingGrounds', 'One line description of project.',
+    (master_doc, 'NotebooksForge', 'Notebooks Forge Documentation',
+     author, 'NotebooksForge', 'One line description of project.',
      'Miscellaneous'),
 ]
 

@@ -1,46 +1,54 @@
-# Hunting Grounds script: Jupyter Environment Dockerfile
-# Hunting Grounds Jupyter build Stage: Alpha
+# Notebooks forge script: Notebooks Forge Docker Image
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 # References:
 # https://github.com/jupyter/docker-stacks/blob/master/all-spark-notebook/Dockerfile
+# https://derflounder.wordpress.com/2016/07/11/editing-etcsudoers-to-manage-sudo-rights-for-users-and-groups/
 
-FROM cyb3rward0g/helk-spark-base:2.4.3
+FROM phusion/baseimage:0.11
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
-LABEL description="Dockerfile Hunting Grounds Jupyter Project."
+LABEL description="Dockerfile Notebooks Forge Base Image.."
 
 ENV DEBIAN_FRONTEND noninteractive
 
 USER root
 
+# **** Set ARG Values ****
+ARG JUPYTER_USER=jupyter
+ARG JUPYTER_UID=810
+ARG JUPYTER_GID=810
+
 # *********** Setting Environment Variables ***************
 ENV CONDA_VERSION=4.6.7
-ENV POSTGRESQL_VERSION=42.2.5
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV JUPYTER_DIR=/opt/helk/jupyter
+ENV JUPYTER_DIR=/opt/jupyter
 ENV CONDA_DIR=/opt/conda
 ENV PATH /opt/conda/bin:$PATH
-ENV JUSER_GID=810
-ENV JUSER_UID=810
-ENV JUSER=jupyter
+# ********** Jupyter User ******
+ENV USER ${JUPYTER_USER}
+ENV JUPYTER_UID ${JUPYTER_UID}
+ENV HOME /home/${JUPYTER_USER}
+ENV JUPYTER_GID=$JUPYTER_GID
 
+# *********** Installing Prerequisites ***************
+# ********** Installing Initial Requirements ***************
+RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+  wget sudo nano bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 \
+  git mercurial subversion unzip zip \
 # ********** Adding Jupyter User **************
-RUN groupadd -g ${JUSER_GID} ${JUSER} \
-  && useradd -m -s /bin/bash -u ${JUSER_UID} -g ${JUSER_GID} ${JUSER} \
-  && bash -c 'mkdir -pv /opt/helk/{es-hadoop,jupyter/notebooks,jupyterhub}' \
-  && chown -R ${JUSER}:${JUSER_GID} /opt ${JUPYTER_DIR} \
-  # ********** Installing Initial Requirements ***************
-  && apt-get update --fix-missing && apt-get install -y --no-install-recommends \
-  wget bzip2 ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 git mercurial subversion \
-  unzip zip postgresql postgresql-contrib \
-  # ********** Installing R Notebooks Dependencies *********
-  fonts-dejavu tzdata gfortran gcc \
-  && ln -s /bin/tar /bin/gtar \
+  && echo "auth requisite pam_deny.so" >> /etc/pam.d/su \
+  # remove the sudo rights for all users with admin privileges or in admin group
+  && sed -i.bak -e 's/^%admin/#%admin/' /etc/sudoers \
+  && sed -i.bak -e 's/^%sudo/#%sudo/' /etc/sudoers \
+  && groupadd -g ${JUPYTER_GID} ${JUPYTER_USER} \
+  && useradd -m -s /bin/bash -u ${JUPYTER_UID} -g ${JUPYTER_GID} ${JUPYTER_USER} \
+  && bash -c 'mkdir -pv /opt/jupyter/{notebooks,scripts}' \
   # ********** Clean APT **********
   && apt-get -qy clean autoremove \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && chown -R ${USER} /opt ${HOME}
 
-USER $JUSER_UID
+USER ${USER}
 # *********** Install Miniconda3 ********************
 # **** Current Channels ***********
 #- https://repo.anaconda.com/pkgs/main/linux-64
@@ -49,52 +57,35 @@ USER $JUSER_UID
 #- https://repo.anaconda.com/pkgs/free/noarch
 #- https://repo.anaconda.com/pkgs/r/linux-64
 #- https://repo.anaconda.com/pkgs/r/noarch
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh \
+RUN cd /tmp \
+  && wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh \
   && /bin/bash ~/anaconda.sh -b -p /opt/conda \
   && rm ~/anaconda.sh \
   && conda config --system --prepend channels conda-forge \
   && conda install --quiet --yes conda-build \
-  # *********** Install Jupyter Notebook & Extra Packages with Conda *************
   && conda install --quiet --yes \
     'python=3.7' \
-    'conda=4.6.14' \
+    'conda=4.7.5' \
     'nbconvert=5.5.0' \
     'notebook=5.7.8' \
     'jupyterhub=1.0.0' \
-    'jupyterlab=0.35.6' \
+    'jupyterlab=1.0.2' \
     'pandas=0.24.2' \
-    'spylon-kernel=0.4.1' \
   && conda update --all --quiet --yes \
   # *********** Installing Jupyter Extensions *****************
-  && jupyter labextension install @jupyterlab/hub-extension@0.12.0 \
   && jupyter labextension install @jupyterlab/celltags@0.1.4 \
-  && jupyter labextension install @mflevine/jupyterlab_html@0.1.4 \
-  && jupyter labextension install @jupyter-widgets/jupyterlab-manager@0.38.1 \
   && rm -rf $CONDA_DIR/share/jupyter/lab/staging \
   # *********** Clean *****************
   && npm cache clean --force \
   && conda clean -tipy \
   && conda build purge-all \
-  && rm -rf /home/$JUSER/.cache/yarn \
-  # *********** Install Scala Kernel *************
-  && python3 -m spylon_kernel install --sys-prefix \
-  # ********** Download Postgresql JAR *****************
-  && wget https://jdbc.postgresql.org/download/postgresql-${POSTGRESQL_VERSION}.jar -P /opt/helk/spark/jars/ \
-  && mkdir -v /opt/helk/spark/log
-
-USER root
+  && rm -rf /home/$JUPYTER_USER/.cache/yarn
 
 # *********** Adding HELK scripts and files to Container ***************
-COPY --chown=jupyter:810 scripts/* ${JUPYTER_DIR}/
-COPY --chown=jupyter:810 spark/* ${SPARK_HOME}/conf/
-COPY --chown=jupyter:810 kernels/pyspark_kernel.json /usr/local/share/jupyter/kernels/pyspark3/kernel.json
+COPY scripts/* ${JUPYTER_DIR}/scripts/
 
-RUN chown jupyter /run/postgresql
+EXPOSE 8888
 
-EXPOSE 8888 8000
 # *********** RUN HELK ***************
-WORKDIR ${JUPYTER_DIR}
-ENTRYPOINT ["./jupyter-entrypoint.sh"]
-CMD ["./jupyter-cmd.sh"]
-
-USER ${JUSER_UID}
+WORKDIR ${HOME}
+CMD ["/opt/jupyter/scripts/jupyter-cmd.sh"]

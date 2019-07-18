@@ -9,8 +9,8 @@
    "{connection_file}"
   ],
   "env": {
-   "SPARK_HOME": "/opt/helk/spark/",
-   "PYTHONPATH": "/opt/helk/spark/python/:/opt/helk/spark/python/lib/py4j-0.10.7-src.zip:/opt/helk/spark/graphframes.zip",
+   "SPARK_HOME": "/opt/jupyter/spark/",
+   "PYTHONPATH": "/opt/jupyter/spark/python/:/opt/jupyter/spark/python/lib/py4j-0.10.7-src.zip:/opt/jupyter/spark/graphframes.zip",
    "PYSPARK_PYTHON": "/usr/bin/python3.7"
   }
 }

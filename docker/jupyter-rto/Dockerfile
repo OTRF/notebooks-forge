@@ -3,13 +3,13 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-base:0.0.1
+FROM cyb3rward0g/jupyter-base:0.0.3
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Dockerfile Hunting Grounds Jupyter Project."
 
 ENV DEBIAN_FRONTEND noninteractive
 
-USER $JUSER_UID
+USER ${USER}
 
 RUN python3 -m pip install --upgrade pip \
   # *********** Install Pip packages not availabe via conda ************

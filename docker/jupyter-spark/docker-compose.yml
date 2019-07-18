@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  jupyter-spark:
+    build: ./
+    container_name: jupyter-spark
+    environment:
+      JUPYTER_TYPE: lab
+      JUPYTER_BASE_URL: /jupyter
+    ports:
+      - "8888:8888"
+    restart: always
+    networks:
+      hunting:
+
+networks:
+  hunting:
+    driver: bridge
+
+volumes:
+  notebooks:
+    driver: local

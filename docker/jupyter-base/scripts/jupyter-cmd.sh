@@ -1,16 +1,21 @@
 #!/bin/bash
 
-# HELK script: jupyter-cmd.sh
-# HELK script description: Runs Jupyter type and specific parameters
-# HELK build Stage: Alpha
+# Notebooks Forge script: jupyter-cmd.sh
+# Notebooks Forge script description: Runs Jupyter type and specific parameters
+# Notebooks Forge build Stage: Alpha
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-HELK_INFO_TAG="[HELK-JUPYTER-DOCKER-INSTALLATION-INFO]"
-HELK_ERROR_TAG="[HELK-JUPYTER-DOCKER-INSTALLATION-ERROR]"
-JUPYTER_NOTEBOOKS=/opt/helk/jupyter/notebooks
+NOTEBOOK_INFO_TAG="[NOTEBOOK-JUPYTER-DOCKER-INSTALLATION-INFO]"
+NOTEBOOK_ERROR_TAG="[NOTEBOOK-JUPYTER-DOCKER-INSTALLATION-ERROR]"
+JUPYTER_NOTEBOOKS=/opt/jupyter/notebooks
 # ***** Defining Jupyter params array **********
 params=()
+
+# **** Setting Jupyter Notebook Type ******
+if [[ -z "$JUPYTER_TYPE" ]]; then
+    JUPYTER_TYPE="notebook"
+fi
 
 # ***** Setting defaults and param variables ***********
 # ***** If a config is passed, it should be enough ***********
@@ -51,21 +56,18 @@ else
         fi
         params+=("--LabApp.base_url=$JUPYTER_BASE_URL")
     else
-        echo "$HELK_ERROR_TAG You did not enter a valid Jupyter type:  $JUPYTER_TYPE.."
+        echo "$NOTEBOOK_ERROR_TAG You did not enter a valid Jupyter type:  $JUPYTER_TYPE.."
         exit 1
     fi
 fi
 # ***** Running Jupyter Type & Parameters ***********
-echo "$HELK_INFO_TAG Running Jupyter Type: $JUPYTER_TYPE.."
-echo "$HELK_INFO_TAG Running the following parameters ${params[@]}"
+echo "$NOTEBOOK_INFO_TAG Running Jupyter Type: $JUPYTER_TYPE.."
+echo "$NOTEBOOK_INFO_TAG Running the following parameters ${params[@]}"
 
 if [[ "$JUPYTER_TYPE" == "notebook" ]]; then
     jupyter notebook ${params[@]}
 elif [[ "$JUPYTER_TYPE" == "lab" ]]; then
     jupyter lab ${params[@]}
-else
-    echo "$HELK_ERROR_TAG You did not enter a valid Jupyter type:  $JUPYTER_TYPE.."
-    exit 1
 fi
 
-echo "$HELK_INFO_TAG Starting Jupyter $JUPYTER_TYPE.."
+echo "$NOTEBOOK_INFO_TAG Starting Jupyter $JUPYTER_TYPE.."

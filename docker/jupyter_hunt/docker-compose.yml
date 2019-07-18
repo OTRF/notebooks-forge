@@ -2,10 +2,10 @@ version: '3.5'
 
 services:
   jupyter-hunt:
-    image: cyb3rward0g/jupyter-hunt:0.0.1
+    build: ./
     container_name: jupyter-hunt
     volumes:
-      - notebooks:/opt/helk/jupyter/notebooks
+      - notebooks:/opt/jupyter/notebooks
     environment:
       JUPYTER_TYPE: lab
       JUPYTER_BASE_URL: /jupyter

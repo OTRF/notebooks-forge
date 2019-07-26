@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Jupyter Hunt Server" href="jupyter_hunt.html" />
+    <link rel="next" title="Jupyter Spark Server" href="jupyter_spark.html" />
     <link rel="prev" title="Notebooks Forge" href="index.html" /> 
 </head>
 
@@ -89,14 +89,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook-document">Jupyter Notebook&nbsp;Document</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#jupyter-kernels-available">Jupyter Kernels Available</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ipython-kernel-python">IPython Kernel (Python)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pyspark-kernel-python">PySpark Kernel (Python)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#syplon-kernel-scala-python">Syplon Kernel (Scala/Python)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#r-kernel-r">R Kernel (R)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks-server">Jupyter Notebooks Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks-servers">Jupyter Notebooks Servers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jupyter_spark.html">Jupyter Spark</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jupyter_hunt.html">Jupyter Hunt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jupyter_rto.html">Jupyter RTO</a></li>
 </ul>
@@ -214,42 +208,23 @@ This model applies a similar concept to the <a class="reference external" href="
 </ul>
 </div>
 </div>
-<div class="section" id="jupyter-kernels-available">
-<h2>Jupyter Kernels Available<a class="headerlink" href="#jupyter-kernels-available" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ipython-kernel-python">
-<h3>IPython Kernel (Python)<a class="headerlink" href="#ipython-kernel-python" title="Permalink to this headline">¶</a></h3>
-<p>The Jupyter team maintains the <a class="reference external" href="https://github.com/ipython/ipython">IPython kernel</a> since the Jupyter notebook server depends on the IPython kernel functionality.
-Many other languages, in addition to Python, may be used in the notebook.</p>
-</div>
-<div class="section" id="pyspark-kernel-python">
-<h3>PySpark Kernel (Python)<a class="headerlink" href="#pyspark-kernel-python" title="Permalink to this headline">¶</a></h3>
-<p>A python Kernel to enable <a class="reference external" href="http://spark.apache.org/docs/latest/api/python/index.html">Apache Spark for python</a>.
-Writing PySpark Applications is really no different than writing normal Python applications or packages.
-It’s quite similar to writing command-line applications in particular.
-Spark doesn’t have a build concept, just Python scripts, so to run an application, you simply execute the script against the cluster.</p>
-</div>
-<div class="section" id="syplon-kernel-scala-python">
-<h3>Syplon Kernel (Scala/Python)<a class="headerlink" href="#syplon-kernel-scala-python" title="Permalink to this headline">¶</a></h3>
-<p>A Scala kernel for Apache Spark that uses <a class="reference external" href="https://github.com/Calysto/metakernel">metakernel</a> in combination with <a class="reference external" href="https://www.py4j.org/">py4j</a>.</p>
-</div>
-<div class="section" id="r-kernel-r">
-<h3>R Kernel (R)<a class="headerlink" href="#r-kernel-r" title="Permalink to this headline">¶</a></h3>
-<p>An R kernel for <a class="reference external" href="http://spark.apache.org/docs/latest/sparkr.html#sparkr-r-on-spark">Apache SparkR</a>.
-SparkR is an R package that provides a light-weight frontend to use Apache Spark from R.
-In Spark 2.4.1, SparkR provides a distributed data frame implementation that supports operations like selection, filtering, aggregation etc. (similar to R data frames, dplyr) but on large datasets.
-SparkR also supports distributed machine learning using MLlib.</p>
-</div>
-</div>
-<div class="section" id="jupyter-notebooks-server">
-<h2>Jupyter Notebooks Server<a class="headerlink" href="#jupyter-notebooks-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jupyter-notebooks-servers">
+<h2>Jupyter Notebooks Servers<a class="headerlink" href="#jupyter-notebooks-servers" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter_spark.html">Jupyter Spark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_spark.html#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_spark.html#jupyter-kernels-available">Jupyter Kernels Available</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_hunt.html">Jupyter Hunt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jupyter_hunt.html#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_hunt.html#jupyter-kernels-available">Jupyter Kernels Available</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter_rto.html">Jupyter RTO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jupyter_rto.html#jupyter-python-libraries">Jupyter Python Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jupyter_rto.html#jupyter-kernels-available">Jupyter Kernels Available</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +240,7 @@ SparkR also supports distributed machine learning using MLlib.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jupyter_hunt.html" class="btn btn-neutral float-right" title="Jupyter Hunt Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jupyter_spark.html" class="btn btn-neutral float-right" title="Jupyter Spark Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Notebooks Forge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

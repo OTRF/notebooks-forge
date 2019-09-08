@@ -1,11 +1,9 @@
 version: '3.5'
 
 services:
-  jupyter-rto:
+  jupyter-pyspark:
     build: ./
-    container_name: jupyter-rto
-    volumes:
-      - notebooks:/opt/helk/jupyter/notebooks
+    container_name: jupyter-pyspark
     environment:
       JUPYTER_TYPE: lab
       JUPYTER_BASE_URL: /jupyter

@@ -42,6 +42,6 @@ There are a few things that we would like to accomplish with this repo as shown 
 - [ ] Zeppelin Notebooks support
 - [ ] Implementation of Cypher for Apache Spark with Zeppelin
 - [ ] Create examples for offennsive and defensive use cases
-- [ ] Logo
+- [X] Logo
 
 More coming soon...

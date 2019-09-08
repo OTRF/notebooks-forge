@@ -19,7 +19,6 @@ ARG JUPYTER_UID=810
 ARG JUPYTER_GID=810
 
 # *********** Setting Environment Variables ***************
-ENV CONDA_VERSION=4.6.7
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV JUPYTER_DIR=/opt/jupyter
 ENV CONDA_DIR=/opt/conda
@@ -57,23 +56,26 @@ USER ${USER}
 #- https://repo.anaconda.com/pkgs/free/noarch
 #- https://repo.anaconda.com/pkgs/r/linux-64
 #- https://repo.anaconda.com/pkgs/r/noarch
-RUN cd /tmp \
+# ** Conda Issue **
+# https://github.com/ContinuumIO/anaconda-issues/issues/11148
+RUN mkdir /home/${USER}/.conda \
+  && cd /tmp \
   && wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/anaconda.sh \
   && /bin/bash ~/anaconda.sh -b -p /opt/conda \
   && rm ~/anaconda.sh \
   && conda config --system --prepend channels conda-forge \
   && conda install --quiet --yes conda-build \
   && conda install --quiet --yes \
-    'python=3.7' \
-    'conda=4.7.5' \
-    'nbconvert=5.5.0' \
-    'notebook=5.7.8' \
+    'python=3.7.3' \
+    'conda=4.7.11' \
+    'nbconvert=5.6.0' \
+    'notebook=6.0.1' \
     'jupyterhub=1.0.0' \
-    'jupyterlab=1.0.2' \
-    'pandas=0.24.2' \
+    'jupyterlab=1.0.9' \
+    'pandas=0.25.0' \
   && conda update --all --quiet --yes \
   # *********** Installing Jupyter Extensions *****************
-  && jupyter labextension install @jupyterlab/celltags@0.1.4 \
+  && jupyter labextension install @jupyterlab/celltags \
   && rm -rf $CONDA_DIR/share/jupyter/lab/staging \
   # *********** Clean *****************
   && npm cache clean --force \

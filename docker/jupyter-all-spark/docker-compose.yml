@@ -1,11 +1,9 @@
 version: '3.5'
 
 services:
-  jupyter-hunt:
+  jupyter-all-spark:
     build: ./
-    container_name: jupyter-hunt
-    volumes:
-      - notebooks:/opt/jupyter/notebooks
+    container_name: jupyter-all-spark
     environment:
       JUPYTER_TYPE: lab
       JUPYTER_BASE_URL: /jupyter

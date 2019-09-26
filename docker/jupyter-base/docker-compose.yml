@@ -2,10 +2,10 @@ version: '3.5'
 
 services:
   jupyter-base:
-    build: ./
+    image: cyb3rward0g/jupyter-base:0.0.4
     container_name: jupyter-base
     environment:
-      JUPYTER_TYPE: lab
+      JUPYTER_TYPE: notebook
       JUPYTER_BASE_URL: /jupyter
     ports:
       - "8888:8888"

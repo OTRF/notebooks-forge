@@ -23,7 +23,7 @@ RUN apt-get update -qq \
   && rm -rf /var/lib/apt/lists/* \
   # *********** Installing Spark ***************
   && bash -c 'mkdir -pv /opt/jupyter/spark/logs' \
-  && wget -qO- http://mirror.reverse.net/pub/apache/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${APACHE_HADOOP_VERSION}.tgz | sudo tar xvz -C ${SPARK_HOME} --strip-components=1 \
+  && wget -c http://apache.claz.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${APACHE_HADOOP_VERSION}.tgz -O - | tar xvz -C ${SPARK_HOME} --strip-components=1 \
   && chown -R ${USER} ${JUPYTER_DIR} ${HOME}
 
 # *********** Adding scripts and files to Container ***************

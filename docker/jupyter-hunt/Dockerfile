@@ -2,7 +2,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.1
+FROM cyb3rward0g/jupyter-pyspark:0.0.2
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project."
 
@@ -14,7 +14,7 @@ ENV KAFKA_VERSION=2.2.0
 ENV SCALA_VERSION=2.11
 ENV LZ4_JAVA=1.5.1
 ENV SNAPPY_JAVA=1.1.7.3
-ENV ESHADOOP_VERSION=7.3.1
+ENV ESHADOOP_VERSION=7.3.2
 ENV ESHADOOP_DIR=${JUPYTER_DIR}/es-hadoop
 
 USER $USER
@@ -40,7 +40,7 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   && conda build purge-all \
   && rm -rf /home/$USER/.cache/yarn \
   # *********** Install Pip packages not availabe via conda ************
-  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.1.0 splunk-sdk==1.6.6 Kqlmagic==0.1.101 neo4j==1.7.4 openhunt==1.5 \
+  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.1.0 splunk-sdk==1.6.6 Kqlmagic==0.1.101 neo4j==1.7.4 openhunt==1.6.4 pyarrow==0.14.1 msticpy==0.2.6 \
   # *********** Download ES-Hadoop ***************
   && wget https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-${ESHADOOP_VERSION}.zip -P ${ESHADOOP_DIR}/ \
   && unzip -j ${ESHADOOP_DIR}/*.zip -d ${ESHADOOP_DIR}/ \

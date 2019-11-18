@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   jupyter-rto:
-    build: ./
+    image: cyb3rward0g/jupyter-rto:0.0.2
     container_name: jupyter-rto
     volumes:
       - notebooks:/opt/helk/jupyter/notebooks

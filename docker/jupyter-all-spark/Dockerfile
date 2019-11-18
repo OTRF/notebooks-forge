@@ -2,7 +2,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.1
+FROM cyb3rward0g/jupyter-pyspark:0.0.3
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project."
 
@@ -34,7 +34,7 @@ RUN conda install --quiet --yes \
     'r-base=3.6.1' \
     'r-irkernel=1.0.2' \
     'r-ggplot2=3.2.1' \
-    'r-sparklyr=1.0.2' \
+    'r-sparklyr=1.0.5' \
     'r-rcurl=1.95*' \
   # *********** Clean *****************
   && conda clean -tipy \

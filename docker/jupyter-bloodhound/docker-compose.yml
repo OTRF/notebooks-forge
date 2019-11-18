@@ -1,11 +1,13 @@
 version: '3.5'
 
 services:
-  jupyter-pyspark:
-    image: cyb3rward0g/jupyter-pyspark:0.0.3
-    container_name: jupyter-pyspark
+  jupyter-bloodhound:
+    build: ./
+    container_name: jupyter-bloodhound
+    volumes:
+      - notebooks:/opt/helk/jupyter/notebooks
     environment:
-      JUPYTER_TYPE: notebook
+      JUPYTER_TYPE: lab
       JUPYTER_BASE_URL: /jupyter
     ports:
       - "8888:8888"

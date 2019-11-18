@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   jupyter-all-spark:
-    build: ./
+    Image: cyb3rward0g/jupyter-all-spark:0.0.1
     container_name: jupyter-all-spark
     environment:
       JUPYTER_TYPE: lab

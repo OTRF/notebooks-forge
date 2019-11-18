@@ -2,7 +2,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.2
+FROM cyb3rward0g/jupyter-pyspark:0.0.3
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project."
 
@@ -10,11 +10,12 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # *********** Setting Environment Variables ***************
 ENV GRAPHFRAMES_VERSION=0.7.0
-ENV KAFKA_VERSION=2.2.0
+ENV KAFKA_VERSION=2.3.1
 ENV SCALA_VERSION=2.11
-ENV LZ4_JAVA=1.5.1
+ENV SLF4J_API_VERSION=1.7.29
+ENV LZ4_JAVA=1.6.0
 ENV SNAPPY_JAVA=1.1.7.3
-ENV ESHADOOP_VERSION=7.3.2
+ENV ESHADOOP_VERSION=7.4.2
 ENV ESHADOOP_DIR=${JUPYTER_DIR}/es-hadoop
 
 USER $USER
@@ -29,10 +30,10 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   # *********** Install Jupyter Notebook & Extra Packages with Conda *************
   && conda install --quiet --yes \
     'altair=3.2.0' \
-    's3fs=0.3.3' \
+    's3fs=0.4.0' \
     'elasticsearch-dsl=7.0.0' \
-    'matplotlib=3.1.1' \
-    'networkx=2.3' \
+    'matplotlib=3.1.2' \
+    'networkx=2.4' \
     'nxviz=0.6.1' \
   && conda update --all --quiet --yes \
   # *********** Clean *****************
@@ -40,7 +41,7 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   && conda build purge-all \
   && rm -rf /home/$USER/.cache/yarn \
   # *********** Install Pip packages not availabe via conda ************
-  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.1.0 splunk-sdk==1.6.6 Kqlmagic==0.1.101 neo4j==1.7.4 openhunt==1.6.4 pyarrow==0.14.1 msticpy==0.2.6 \
+  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.2.0 splunk-sdk==1.6.11 Kqlmagic==0.1.107.post1 neo4j==1.7.6 openhunt==1.6.4 pyarrow==0.15.1 msticpy==0.2.7 \
   # *********** Download ES-Hadoop ***************
   && wget https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-${ESHADOOP_VERSION}.zip -P ${ESHADOOP_DIR}/ \
   && unzip -j ${ESHADOOP_DIR}/*.zip -d ${ESHADOOP_DIR}/ \
@@ -51,7 +52,7 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   # *********** Download Extra Jars ***************
   && wget http://central.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_${SCALA_VERSION}/${SPARK_VERSION}/spark-sql-kafka-0-10_${SCALA_VERSION}-${SPARK_VERSION}.jar -P ${SPARK_HOME}/jars/ \
   && wget http://central.maven.org/maven2/org/apache/kafka/kafka-clients/${KAFKA_VERSION}/kafka-clients-${KAFKA_VERSION}.jar -P ${SPARK_HOME}/jars/ \
-  && wget https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.16/slf4j-api-1.7.16.jar -P ${SPARK_HOME}/jars/ \
+  && wget https://repo1.maven.org/maven2/org/slf4j/slf4j-api/${SLF4J_API_VERSION}/slf4j-api-${SLF4J_API_VERSION}.jar -P ${SPARK_HOME}/jars/ \
   && wget https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar -P ${SPARK_HOME}/jars/ \
   && wget https://repo1.maven.org/maven2/org/lz4/lz4-java/${LZ4_JAVA}/lz4-java-${LZ4_JAVA}.jar -P ${SPARK_HOME}/jars \
   && wget https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/${SNAPPY_JAVA}/snappy-java-${SNAPPY_JAVA}.jar -P ${SPARK_HOME}/jars/

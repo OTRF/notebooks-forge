@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   jupyter-bloodhound:
-    Image: cyb3rward0g/jupyter-bloodhound:0.0.1
+    image: cyb3rward0g/jupyter-bloodhound:0.0.1
     container_name: jupyter-bloodhound
     volumes:
       - notebooks:/opt/helk/jupyter/notebooks

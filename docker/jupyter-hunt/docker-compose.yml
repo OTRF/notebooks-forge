@@ -2,7 +2,8 @@ version: '3.5'
 
 services:
   jupyter-hunt:
-    image: cyb3rwardog/jupyter-hunt:0.0.7
+    #image: cyb3rwardog/jupyter-hunt:0.0.7
+    build: ./
     container_name: jupyter-hunt
     volumes:
       - notebooks:/opt/jupyter/notebooks

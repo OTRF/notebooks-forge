@@ -66,7 +66,7 @@ RUN mkdir /home/${USER}/.conda \
   && conda config --system --prepend channels conda-forge \
   && conda install --quiet --yes conda-build \
   && conda install --quiet --yes \
-    'python=3.8.2' \
+    'python=3.7.5' \
     'conda=4.8.3' \
     'nbconvert=5.6.1' \
     'notebook=6.0.3' \

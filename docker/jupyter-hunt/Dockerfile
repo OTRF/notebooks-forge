@@ -41,7 +41,7 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   && conda build purge-all \
   && rm -rf /home/$USER/.cache/yarn \
   # *********** Install Pip packages not availabe via conda ************
-  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.4.1 splunk-sdk==1.6.12 Kqlmagic==0.1.111.post15 neo4j==1.7.6 openhunt==1.7.6 pyarrow==0.17.0 msticpy==0.4.0 \
+  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.4.1 splunk-sdk==1.6.12 Kqlmagic==0.1.111.post15 neo4j==1.7.6 openhunt==1.6.5 pyarrow==0.17.0 msticpy==0.4.0 \
   # *********** Download ES-Hadoop ***************
   && wget https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-${ESHADOOP_VERSION}.zip -P ${ESHADOOP_DIR}/ \
   && unzip -j ${ESHADOOP_DIR}/*.zip -d ${ESHADOOP_DIR}/ \

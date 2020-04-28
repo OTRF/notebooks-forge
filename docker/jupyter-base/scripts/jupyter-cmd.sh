@@ -69,11 +69,9 @@ fi
 # ***** Running Jupyter Type & Parameters ***********
 echo "$NOTEBOOK_INFO_TAG Running Jupyter Type: $JUPYTER_TYPE.."
 echo "$NOTEBOOK_INFO_TAG Running the following parameters ${params[@]}"
-
+echo "$NOTEBOOK_INFO_TAG Starting Jupyter $JUPYTER_TYPE.."
 if [[ "$JUPYTER_TYPE" == "notebook" ]]; then
     jupyter notebook ${params[@]}
 elif [[ "$JUPYTER_TYPE" == "lab" ]]; then
     jupyter lab ${params[@]}
 fi
-
-echo "$NOTEBOOK_INFO_TAG Starting Jupyter $JUPYTER_TYPE.."

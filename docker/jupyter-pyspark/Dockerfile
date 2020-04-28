@@ -26,6 +26,15 @@ RUN apt-get update -qq \
   && wget -c http://apache.claz.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${APACHE_HADOOP_VERSION}.tgz -O - | tar xvz -C ${SPARK_HOME} --strip-components=1 \
   && chown -R ${USER} ${JUPYTER_DIR} ${HOME}
 
+USER ${USER}
+
+# Downgrade Python (Spark does not work well with 3.8)
+RUN conda install --quiet --yes \
+    'python=3.7.6' \
+    && conda clean -tipy \
+    && conda build purge-all
+
+USER root
 # *********** Adding scripts and files to Container ***************
 COPY spark/* ${SPARK_HOME}/conf/
 COPY kernels/pyspark_kernel.json /usr/local/share/jupyter/kernels/pyspark3/kernel.json

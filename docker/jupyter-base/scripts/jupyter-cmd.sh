@@ -44,8 +44,8 @@ else
 
     # ***** Buffer Manager *******
     if [[ -z "$JUPYTER_MAX_BUFFER_SIZE" ]]; then
-        # 2 GB by default
-        JUPYTER_MAX_BUFFER_SIZE="2147483648"
+        # 0.5 GB by default
+        JUPYTER_MAX_BUFFER_SIZE="536870912"
     fi
     params+=("--NotebookApp.max_buffer_size=$JUPYTER_MAX_BUFFER_SIZE")
     # ***** Running Jupyter Type & Parameters ***********

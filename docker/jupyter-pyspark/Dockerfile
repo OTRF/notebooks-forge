@@ -2,7 +2,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-base:0.0.5
+FROM cyb3rward0g/jupyter-base:0.0.6
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project."
 
@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 USER root
 
 # *********** Spark Env Variables ***************
-ENV SPARK_VERSION=2.4.4
+ENV SPARK_VERSION=2.4.5
 ENV APACHE_HADOOP_VERSION=2.7
 ENV SPARK_HOME=/opt/jupyter/spark
 

@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   jupyter-pyspark:
-    image: cyb3rward0g/jupyter-pyspark:0.0.3
+    image: cyb3rward0g/jupyter-pyspark:0.0.4
     container_name: jupyter-pyspark
     environment:
       JUPYTER_TYPE: notebook

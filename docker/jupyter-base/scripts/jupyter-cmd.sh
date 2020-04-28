@@ -55,6 +55,13 @@ else
             JUPYTER_BASE_URL="/"
         fi
         params+=("--LabApp.base_url=$JUPYTER_BASE_URL")
+    elif [[ "$JUPYTER_TYPE" == "lab" ]]; then
+        # ***** Buffer Manager *******
+        if [[ -z "$JUPYTER_MAX_BUFFER_SIZE" ]]; then
+            # 2 GB by default
+            JUPYTER_MAX_BUFFER_SIZE="2147483648"
+        fi
+        params+=("--NotebookApp.max_buffer_size=$JUPYTER_MAX_BUFFER_SIZE")
     else
         echo "$NOTEBOOK_ERROR_TAG You did not enter a valid Jupyter type:  $JUPYTER_TYPE.."
         exit 1

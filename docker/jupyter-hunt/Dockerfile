@@ -2,7 +2,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.3
+FROM cyb3rward0g/jupyter-pyspark:0.0.4
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project."
 
@@ -15,7 +15,7 @@ ENV SCALA_VERSION=2.11
 ENV SLF4J_API_VERSION=1.7.29
 ENV LZ4_JAVA=1.6.0
 ENV SNAPPY_JAVA=1.1.7.3
-ENV ESHADOOP_VERSION=7.4.2
+ENV ESHADOOP_VERSION=7.5.2
 ENV ESHADOOP_DIR=${JUPYTER_DIR}/es-hadoop
 
 USER $USER
@@ -29,19 +29,19 @@ USER $USER
 RUN mkdir -v ${ESHADOOP_DIR} \
   # *********** Install Jupyter Notebook & Extra Packages with Conda *************
   && conda install --quiet --yes \
-    'altair=3.2.0' \
-    's3fs=0.4.0' \
+    'altair=4.1.0' \
+    's3fs=0.4.2' \
     'elasticsearch-dsl=7.0.0' \
-    'matplotlib=3.1.2' \
+    'matplotlib=3.2.1' \
     'networkx=2.4' \
-    'nxviz=0.6.1' \
+    'nxviz=0.6.2' \
   && conda update --all --quiet --yes \
   # *********** Clean *****************
   && conda clean -tipy \
   && conda build purge-all \
   && rm -rf /home/$USER/.cache/yarn \
   # *********** Install Pip packages not availabe via conda ************
-  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.2.0 splunk-sdk==1.6.11 Kqlmagic==0.1.107.post1 neo4j==1.7.6 openhunt==1.6.4 pyarrow==0.15.1 msticpy==0.2.7 \
+  && python3 -m pip install ksql==0.5.1.1 confluent-kafka==1.4.1 splunk-sdk==1.6.12 Kqlmagic==0.1.111.post15 neo4j==1.7.6 openhunt==1.7.6 pyarrow==0.17.0 msticpy==0.4.0 \
   # *********** Download ES-Hadoop ***************
   && wget https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-${ESHADOOP_VERSION}.zip -P ${ESHADOOP_DIR}/ \
   && unzip -j ${ESHADOOP_DIR}/*.zip -d ${ESHADOOP_DIR}/ \

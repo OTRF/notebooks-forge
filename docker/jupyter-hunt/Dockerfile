@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # *********** Setting Environment Variables ***************
 ENV GRAPHFRAMES_VERSION=0.7.0
-ENV KAFKA_VERSION=2.3.1
+ENV KAFKA_VERSION=2.4.0
 ENV SCALA_VERSION=2.11
 ENV SLF4J_API_VERSION=1.7.29
 ENV LZ4_JAVA=1.6.0
@@ -50,8 +50,8 @@ RUN mkdir -v ${ESHADOOP_DIR} \
   && wget http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/${GRAPHFRAMES_VERSION}-spark2.4-s_2.11/graphframes-${GRAPHFRAMES_VERSION}-spark2.4-s_2.11.jar -P ${SPARK_HOME}/jars/ \
   && cp ${SPARK_HOME}/jars/graphframes* ${SPARK_HOME}/graphframes.zip \
   # *********** Download Extra Jars ***************
-  && wget http://central.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_${SCALA_VERSION}/${SPARK_VERSION}/spark-sql-kafka-0-10_${SCALA_VERSION}-${SPARK_VERSION}.jar -P ${SPARK_HOME}/jars/ \
-  && wget http://central.maven.org/maven2/org/apache/kafka/kafka-clients/${KAFKA_VERSION}/kafka-clients-${KAFKA_VERSION}.jar -P ${SPARK_HOME}/jars/ \
+  && wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_${SCALA_VERSION}/${SPARK_VERSION}/spark-sql-kafka-0-10_${SCALA_VERSION}-${SPARK_VERSION}.jar -P ${SPARK_HOME}/jars/ \
+  && wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/${KAFKA_VERSION}/kafka-clients-${KAFKA_VERSION}.jar -P ${SPARK_HOME}/jars/ \
   && wget https://repo1.maven.org/maven2/org/slf4j/slf4j-api/${SLF4J_API_VERSION}/slf4j-api-${SLF4J_API_VERSION}.jar -P ${SPARK_HOME}/jars/ \
   && wget https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar -P ${SPARK_HOME}/jars/ \
   && wget https://repo1.maven.org/maven2/org/lz4/lz4-java/${LZ4_JAVA}/lz4-java-${LZ4_JAVA}.jar -P ${SPARK_HOME}/jars \

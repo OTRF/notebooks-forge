@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 USER root
 
 # *********** Spark Env Variables ***************
-ENV SPARK_VERSION=2.4.5
+ENV SPARK_VERSION=3.0.0
 ENV APACHE_HADOOP_VERSION=2.7
 ENV SPARK_HOME=/opt/jupyter/spark
 

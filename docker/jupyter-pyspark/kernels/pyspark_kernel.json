@@ -10,7 +10,7 @@
   ],
   "env": {
    "SPARK_HOME": "/opt/jupyter/spark/",
-   "PYTHONPATH": "/opt/jupyter/spark/python/:/opt/jupyter/spark/python/lib/py4j-0.10.7-src.zip:/opt/jupyter/spark/graphframes.zip",
+   "PYTHONPATH": "/opt/jupyter/spark/python/:/opt/jupyter/spark/python/lib/py4j-0.10.9-src.zip:/opt/jupyter/spark/graphframes.zip",
    "PYSPARK_PYTHON": "/opt/conda/bin/python3"
   }
 }

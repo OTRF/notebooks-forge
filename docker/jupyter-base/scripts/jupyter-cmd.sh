@@ -8,7 +8,6 @@
 
 NOTEBOOK_INFO_TAG="[NOTEBOOK-JUPYTER-DOCKER-INSTALLATION-INFO]"
 NOTEBOOK_ERROR_TAG="[NOTEBOOK-JUPYTER-DOCKER-INSTALLATION-ERROR]"
-JUPYTER_NOTEBOOKS=/opt/jupyter/notebooks
 # ***** Defining Jupyter params array **********
 params=()
 
@@ -36,8 +35,10 @@ else
     params+=("--port=$JUPYTER_PORT")
 
     # ***** The directory to use for notebooks and kernels *******
-    params+=("--notebook-dir=$JUPYTER_NOTEBOOKS")
-
+    if [[ -z "$JUPYTER_NOTEBOOKS_DIR" ]]; then
+        JUPYTER_NOTEBOOKS_DIR=/opt/jupyter/notebooks
+    fi
+    params+=("--notebook-dir=$JUPYTER_NOTEBOOKS_DIR")
     # ***** Default to no browser ***********
     # Don't open the notebook in a browser after startup.
     params+=("--no-browser")

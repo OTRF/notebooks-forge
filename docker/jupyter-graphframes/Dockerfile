@@ -1,7 +1,7 @@
 # Author: Roberto Rodriguez (@Cyb3rWard0g)
 # License: GPL-3.0
 
-FROM cyb3rward0g/jupyter-pyspark:0.0.5
+FROM cyb3rward0g/jupyter-pyspark:0.0.6
 LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Notebooks Forge Jupyter Project"
 

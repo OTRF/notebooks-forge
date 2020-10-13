@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   jupyter-base:
-    image: cyb3rward0g/jupyter-base:0.0.6
+    image: cyb3rward0g/jupyter-base:0.0.7
     container_name: jupyter-base
     environment:
       JUPYTER_TYPE: lab

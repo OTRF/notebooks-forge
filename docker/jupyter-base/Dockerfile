@@ -67,12 +67,12 @@ RUN mkdir /home/${USER}/.conda \
   && conda install --quiet --yes conda-build \
   && conda install --quiet --yes \
     'python=3.7.5' \
-    'conda=4.8.3' \
-    'nbconvert=5.6.1' \
-    'notebook=6.0.3' \
+    'conda=4.8.5' \
+    'nbconvert=6.0.6' \
+    'notebook=6.1.4' \
     'jupyterhub=1.1.0' \
-    'jupyterlab=2.1.1' \
-    'pandas=1.0.3' \
+    'jupyterlab=2.2.8' \
+    'pandas=1.1.2' \
   && conda update --all --quiet --yes \
   # *********** Installing Jupyter Extensions *****************
   && jupyter labextension install @jupyterlab/celltags \
